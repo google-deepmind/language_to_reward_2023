@@ -1,0 +1,5 @@
+absl-py
+colorama==0.4.6
+mujoco==3.0.0
+openai
+termcolor

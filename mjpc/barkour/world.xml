@@ -1,0 +1,36 @@
+<mujoco model="Barkour flat">
+
+  <option timestep="0.001" integrator="implicitfast"/>
+
+  <size memory="1M"/>
+
+  <visual>
+    <headlight ambient=".4 .4 .4" diffuse=".8 .8 .8" specular="0.1 0.1 0.1"/>
+    <map znear=".01"/>
+    <quality shadowsize="2048"/>
+    <global elevation="-15"/>
+  </visual>
+
+  <include file="task_barkour.xml" />
+
+
+  <include file="barkour_vb_modified.xml"/>
+
+  <visual>
+    <global azimuth="-90"/>
+  </visual>
+
+  <asset>
+    <texture name="groundplane" type="2d" builtin="checker" rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3" mark="edge" markrgb="0.8 0.8 0.8" width="200" height="200"/>
+    <material name="groundplane" texture="groundplane" texrepeat="2 2" texuniform="true" reflectance="0.2"/>
+  </asset>
+
+  <worldbody>
+    <geom name="groundplane" contype="1" conaffinity="1" type="plane" size="0 0 0.1" material="groundplane"/>
+    <light pos="0 0 1.5" dir="0 0 -1" diffuse="0.1 0.1 0.1" specular="0.3 0.3 0.3" directional="true" castshadow="false"/>
+
+    <body name="goal" mocap="true" pos=".3 0 0.33">
+      <geom size="0.01" contype="0" conaffinity="0" rgba="0 1 0 .5" group="2"/>
+    </body>
+  </worldbody>
+</mujoco>

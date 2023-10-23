@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name="language_to_reward_2023"
+version = "0.0.1"
+authors = [
+    {name = "Wenhao Yu", email = "magicmelon@google.com"},
+    {name = "Nimrod Gileadi", email = "nimrod@google.com"},
+    {name = "Fei Xia", email = "xiafei@google.com"},
+]
+description = "Language to Reward (2023)"
+readme = {file = "README.md", content-type = "text/markdown"}
+license = {text = "Apache License 2.0"}
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "absl-py",
+    "colorama",
+    "mujoco",
+    "openai",
+    "termcolor",
+]
+
+[project.urls]
+Homepage = "https://github.com/google-deepmind/language_to_reward_2023"
+Repository = "https://github.com/google-deepmind/language_to_reward_2023"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["language_to_reward_2023*"]
+
+[tool.setuptools.package-data]
+language_to_reward_2023 = [
+    "mjpc/l2r_headless_server",
+    "mjpc/l2r_ui_server",
+]

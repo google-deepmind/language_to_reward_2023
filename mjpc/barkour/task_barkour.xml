@@ -1,0 +1,160 @@
+<mujoco model="Barkour flat">
+  <custom>
+    <numeric name="agent_planner" data="2 " />
+    <numeric name="agent_horizon" data="0.35" />
+    <numeric name="agent_timestep" data="0.01" />
+    <numeric name="agent_integrator" data="3" />
+    <numeric name="sampling_spline_points" data="3" />
+    <numeric name="sampling_trajectories" data="60"/>
+    <numeric name="sampling_exploration" data="0.04" />
+    <numeric name="gradient_spline_points" data="5" />
+
+    <numeric name="residual_TargetBodyHeight" data="0.292 0 1" />
+    <numeric name="residual_GoalPositionX" data="0.0 -4 4" />
+    <numeric name="residual_GoalPositionY" data="0.0 -4 4" />
+    <numeric name="residual_TargetHeading" data="0.0 -3.142 3.142" />
+    <numeric name="residual_TargetPitch" data="0.0 -1.571 1.571" />
+    <numeric name="residual_TargetRoll" data="0.0 -3.142 3.142" />
+    <numeric name="residual_TargetForwardVelocity" data="0.0 -3 3" />
+    <numeric name="residual_TargetSidewaysVelocity" data="0.0 -3 3" />
+    <numeric name="residual_TargetUpwardVelocity" data="0.0 -3 3" />
+    <numeric name="residual_TargetTurningVelocity" data="0.0 -3 3" />
+    <numeric name="residual_TargetRollVelocity" data="0.0 -3 3" />
+
+    <!-- how much to weigh each foot for computing balance. -->
+    <numeric name="residual_FLBalance" data="1 0 1" />
+    <numeric name="residual_HLBalance" data="1 0 1" />
+    <numeric name="residual_FRBalance" data="1 0 1" />
+    <numeric name="residual_HRBalance" data="1 0 1" />
+
+    <!-- gait-related parameters -->
+    <numeric name="residual_FLXDistFromNominal" data="0.0 -1 1" />
+    <numeric name="residual_FLYDistFromNominal" data="0.0 -1 1" />
+    <numeric name="residual_FLZDistFromNominal" data="0.0 -1 1" />
+    <numeric name="residual_FLSteppingFrequency" data="0.0 0 3" />
+    <numeric name="residual_FLGroundToAirRatio" data="0.0 0 1" />
+    <numeric name="residual_FLPhaseOffset" data="0.0 0 1" />
+    <numeric name="residual_FLAmplitudesVertical" data="0.0 0 1" />
+    <numeric name="residual_FLAmplitudesForward" data="0.0 -1 1" />
+    <numeric name="residual_HLXDistFromNominal" data="0.0 -1 1" />
+    <numeric name="residual_HLYDistFromNominal" data="0.0 -1 1" />
+    <numeric name="residual_HLZDistFromNominal" data="0.0 -1 1" />
+    <numeric name="residual_HLSteppingFrequency" data="0.0 0 3" />
+    <numeric name="residual_HLGroundToAirRatio" data="0.0 0 1" />
+    <numeric name="residual_HLPhaseOffset" data="0.0 0 1" />
+    <numeric name="residual_HLAmplitudesVertical" data="0.0 0 1" />
+    <numeric name="residual_HLAmplitudesForward" data="0.0 -1 1" />
+    <numeric name="residual_FRXDistFromNominal" data="0.0 -1 1" />
+    <numeric name="residual_FRYDistFromNominal" data="0.0 -1 1" />
+    <numeric name="residual_FRZDistFromNominal" data="0.0 -1 1" />
+    <numeric name="residual_FRSteppingFrequency" data="0.0 0 3" />
+    <numeric name="residual_FRGroundToAirRatio" data="0.0 0 1" />
+    <numeric name="residual_FRPhaseOffset" data="0.0 0 1" />
+    <numeric name="residual_FRAmplitudesVertical" data="0.0 0 1" />
+    <numeric name="residual_FRAmplitudesForward" data="0.0 -1 1" />
+    <numeric name="residual_HRXDistFromNominal" data="0.0 -1 1" />
+    <numeric name="residual_HRYDistFromNominal" data="0.0 -1 1" />
+    <numeric name="residual_HRZDistFromNominal" data="0.0 -1 1" />
+    <numeric name="residual_HRSteppingFrequency" data="0.0 0 3" />
+    <numeric name="residual_HRGroundToAirRatio" data="0.0 0 1" />
+    <numeric name="residual_HRPhaseOffset" data="0.0 0 1" />
+    <numeric name="residual_HRAmplitudesVertical" data="0.0 0 1" />
+    <numeric name="residual_HRAmplitudesForward" data="0.0 -1 1" />
+
+    <numeric name="residual_q1" data="0.0 -3 3" />
+    <numeric name="residual_q2" data="0.0 -3 3" />
+    <numeric name="residual_q3" data="0.0 -3 3" />
+    <numeric name="residual_q4" data="0.0 -3 3" />
+    <numeric name="residual_q5" data="0.0 -3 3" />
+    <numeric name="residual_q6" data="0.0 -3 3" />
+    <numeric name="residual_q7" data="0.0 -3 3" />
+    <numeric name="residual_q8" data="0.0 -3 3" />
+    <numeric name="residual_q9" data="0.0 -3 3" />
+    <numeric name="residual_q10" data="0.0 -3 3" />
+    <numeric name="residual_q11" data="0.0 -3 3" />
+    <numeric name="residual_q12" data="0.0 -3 3" />
+  </custom>
+
+  <keyframe>
+    <!-- "symmetric_standing" predefined pose. Body height is 0.292m -->
+    <key name="home"
+         qpos="0 0 0.28
+               1 0 0 0
+               0.0 0.5 1.0
+               0.0 0.5 1.0
+               0.0 0.5 1.0
+               0.0 0.5 1.0"
+         ctrl="0.0 0.5 1.0
+               0.0 0.5 1.0
+               0.0 0.5 1.0
+               0.0 0.5 1.0"
+         act="0.0 0.5 1.0
+              0.0 0.5 1.0
+              0.0 0.5 1.0
+              0.0 0.5 1.0"/>
+  </keyframe>
+
+  <sensor>
+    <!-- Torso tracking -->
+    <user name="BodyHeight" dim="1" user="6 0 0 3 0.1" />
+    <user name="BodyXYPos" dim="2" user="2 0.0 0 0.5 0.1" />
+    <user name="Heading" dim="2" user="0 0.0 0 .3" />
+    <user name="Pitch" dim="1" user="6 0.0 0 3 0.05" />
+    <user name="Roll" dim="2" user="6 0.0 0 3 0.05" />
+    <user name="Forward_Velocity" dim="1" user="2 0.0 0 0.5 0.1" />
+    <user name="Sideways_Velocity" dim="1" user="2 0.0 0 0.5 0.1" />
+    <user name="Upward_Velocity" dim="1" user="2 0.0 0 0.5 0.1" />
+    <user name="Roll_Velocity" dim="1" user="2 0.0 0 0.5 0.1" />
+    <user name="Turning_Velocity" dim="1" user="2 0.0 0 0.5 0.1" />
+
+    <!-- Feet tracking -->
+    <user name="FL_forward" dim="1" user="2 0.0 0 1.0 0.1" />
+    <user name="HL_forward" dim="1" user="2 0.0 0 1.0 0.1" />
+    <user name="FR_forward" dim="1" user="2 0.0 0 1.0 0.1" />
+    <user name="HR_forward" dim="1" user="2 0.0 0 1.0 0.1" />
+
+    <user name="FL_inward" dim="1" user="2 0.0 0 1.0 0.1" />
+    <user name="HL_inward" dim="1" user="2 0.0 0 1.0 0.1" />
+    <user name="FR_inward" dim="1" user="2 0.0 0 1.0 0.1" />
+    <user name="HR_inward" dim="1" user="2 0.0 0 1.0 0.1" />
+
+    <user name="FL_upward" dim="1" user="2 0.0 0 2.0 0.1" />
+    <user name="HL_upward" dim="1" user="2 0.0 0 2.0 0.1" />
+    <user name="FR_upward" dim="1" user="2 0.0 0 2.0 0.1" />
+    <user name="HR_upward" dim="1" user="2 0.0 0 2.0 0.1" />
+
+    <!-- Feet gait tracking -->
+    <user name="FL_stepping_vertical" dim="1" user="2 0.0 0 2 0.1" />
+    <user name="FL_stepping_horizontal" dim="1" user="2 0.0 0 0.5 0.1" />
+    <user name="HL_stepping_vertical" dim="1" user="2 0.0 0 2.0 0.1" />
+    <user name="HL_stepping_horizontal" dim="1" user="2 0.0 0 0.5 0.1" />
+    <user name="FR_stepping_vertical" dim="1" user="2 0.0 0 2.0 0.1" />
+    <user name="FR_stepping_horizontal" dim="1" user="2 0.0 0 0.5 0.1" />
+    <user name="HR_stepping_vertical" dim="1" user="2 0.0 0 2.0 0.1" />
+    <user name="HR_stepping_horizontal" dim="1" user="2 0.0 0 0.5 0.1" />
+
+    <user name="Balance" dim="2" user="2 0.2 0 0.3 0.1" />
+    <user name="Effort" dim="12" user="0 0 0.0 0.1" />
+    <user name="Posture" dim="12" user="0 0.01 0.0 0.1" />
+    <user name="PoseTracking" dim="12" user="0 0.0 0.0 5.0" />
+    <user name="act_dot" dim="12" user="0 2e-5 0 1e-4" />
+
+    <subtreecom    name="torso_subtreecom" body="torso"/>
+    <subtreelinvel name="torso_subtreelinvel" body="torso"/>
+    <framequat     name="torso_subtreequat" objtype="xbody" objname="torso"/>
+    <gyro name="torso_angvel" site="origin"/>
+    <framezaxis    name="torso_up" objtype="xbody" objname="torso"/>
+    <framexaxis    name="torso_forward" objtype="xbody" objname="torso"/>
+    <framepos      name="body" objtype="site" objname="origin"/>
+
+    <framepos   name="FLpos" objtype="site" objname="foot_front_left"/>
+    <framepos   name="RLpos" objtype="site" objname="foot_hind_left"/>
+    <framepos   name="FRpos" objtype="site" objname="foot_front_right"/>
+    <framepos   name="RRpos" objtype="site" objname="foot_hind_right"/>
+
+    <framelinvel   name="FLvel" objtype="site" objname="foot_front_left"/>
+    <framelinvel   name="RLvel" objtype="site" objname="foot_hind_left"/>
+    <framelinvel   name="FRvel" objtype="site" objname="foot_front_right"/>
+    <framelinvel   name="RRvel" objtype="site" objname="foot_hind_right"/>
+  </sensor>
+</mujoco>

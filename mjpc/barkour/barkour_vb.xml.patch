@@ -1,0 +1,21 @@
+diff --git a/barkour_vb_modified.xml b/barkour_vb_modified.xml
+--- a/barkour_vb_modified.xml
++++ b/barkour_vb_modified.xml
+@@ -11,7 +11,8 @@
+       </default>
+ 
+       <joint damping="0.024" frictionloss="0.13" armature="0.011"/>
+-      <general forcerange="-18 18" biastype="affine" gainprm="50 0 0" biasprm="0 -50 -0.5"/>
++      <general forcerange="-18 18" biastype="affine" gainprm="50 0 0" biasprm="0 -50 -0.5"
++          dyntype="filterexact" actearly="true" dynprm="0.19" />
+       <default class="bkvb/abduction">
+         <joint range="-1.0472 1.0472"/>
+         <general ctrlrange="-0.9472 0.9472"/>
+@@ -64,6 +65,7 @@
+   <worldbody>
+     <body name="torso" childclass="bkvb">
+       <freejoint name="torso"/>
++      <site name="origin"/>
+       <camera name="track" pos="0.846 -1.465 0.916" xyaxes="0.866 0.500 0.000 -0.171 0.296 0.940" mode="trackcom"/>
+       <inertial pos="0.0055238 -0.000354563 0.00835899" quat="-0.00150849 0.694899 -0.000198355 0.719106" mass="6.04352" diaginertia="0.144664 0.12027 0.0511405"/>
+       <geom class="bkvb/torso" pos="-7.85127e-05 -0.000500734 0" mesh="neck"/>
