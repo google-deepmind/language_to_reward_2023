@@ -67,11 +67,19 @@ def create_agent(
       server_binary_path = DEFAULT_UI_SERVER_PATH
     else:
       server_binary_path = DEFAULT_HEADLESS_SERVER_PATH
+
+  if ui:
+    flags = [
+        '--planner_enabled',
+    ]
+  else:
+    flags = []
+
   return agent_lib.Agent(
       task_id,
       server_binary_path=server_binary_path,
       real_time_speed=real_time_speed,
-      extra_flags=extra_flags or [] or [],
+      extra_flags=flags + (extra_flags or []),
       subprocess_kwargs=subprocess_kwargs,
   )
 
