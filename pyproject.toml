@@ -1,5 +1,3 @@
-# NOTE: This doesn't work yet.
-
 [build-system]
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
