@@ -55,7 +55,7 @@ class Conversation:
       self,
       prompt_model: llm_prompt.LLMPrompt,
       model: str,
-      print_responses: bool = True,
+      print_responses=True,
   ):
     self._prompt_model = prompt_model
     self._model = model
@@ -68,7 +68,7 @@ class Conversation:
       message = [{"role": "user", "content": prompt_model.prompts[llm_id]}]
       self._message_queues[llm_id].append(message[0])
 
-  def send_command(self, user_command: str) -> str:
+  def send_command(self, user_command: str):
     """Sends a user command to the LLMs, returns final processed response."""
     if user_command == "reset":
       self.reset()
@@ -101,7 +101,7 @@ class Conversation:
         raise
     return upstream_message
 
-  def reset(self) -> None:
+  def reset(self):
     for i in range(self._prompt_model.num_llms):
       while len(self._message_queues[i]) > 1:
         self._message_queues[i].pop(-1)

@@ -21,7 +21,7 @@ python3 -m venv /tmp/l2r
 git clone https://github.com/google-deepmind/mujoco_mpc.git
 cd mujoco_mpc
 # Latest MJPC commit at the time of release. Using `main` might work too.
-git checkout 23f87b2be168888a9f5d5feeb50f7c80620d8489
+git checkout 9752219638bb0d60db772177c1a1a230560f3f92
 
 pip install ./python
 

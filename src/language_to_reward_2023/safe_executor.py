@@ -15,12 +15,13 @@
 
 """Base class for executing untrusted code."""
 
-from typing import Protocol
+import abc
 
 
-class SafeExecutor(Protocol):
+class SafeExecutor(metaclass=abc.ABCMeta):
   """Base class for executors that run untrusted code and produce their output."""
 
+  @abc.abstractmethod
   def safe_execute(self, code: str) -> str:
     """Executes the given Python code and returns the standard output from it.
 
