@@ -35,7 +35,7 @@ set(BUILD_SHARED_LIBS
 )
 
 set(L2R_MJPC_GIT_TAG
-    23f87b2be168888a9f5d5feeb50f7c80620d8489
+    c5c7ead065b7f4034ab265a13023231900dbfaa7
     CACHE STRING "Git revision for MuJoCo MPC."
 )
 
