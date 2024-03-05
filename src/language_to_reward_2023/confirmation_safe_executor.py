@@ -21,6 +21,7 @@ on OS X.
 
 import os
 import subprocess
+import sys
 import tempfile
 import termcolor
 
@@ -28,7 +29,7 @@ from language_to_reward_2023 import safe_executor
 
 
 def default_interpreter() -> str:
-  return "/usr/bin/python3"
+  return sys.executable
 
 
 _SERIOUS_WARNING = (
@@ -91,6 +92,12 @@ class ConfirmationSafeExecutor(safe_executor.SafeExecutor):
     directory = os.path.dirname(filepath)
     pycache_dir = os.path.join(directory, "__pycache__")
     pyc_filepath = os.path.join(pycache_dir, filename + "c")
+    if not os.path.exists(pyc_filepath):
+      filename = (
+          os.path.splitext(filename)[0]
+          + f".cpython-{sys.version_info[0]}{sys.version_info[1]}.pyc"
+      )
+      pyc_filepath = os.path.join(pycache_dir, filename)
 
     # Now execute the pyc file
     try:
