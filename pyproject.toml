@@ -32,7 +32,7 @@ dependencies = [
     "absl-py",
     "colorama",
     "mujoco",
-    "openai",
+    "openai==0.28",
     "termcolor",
 ]
 
